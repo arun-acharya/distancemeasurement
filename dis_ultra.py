@@ -12,6 +12,7 @@ redLed = 6
 greenLed = 26 
 yellowLed1 = 19
 yellowLed2 = 13
+buzzer = 5
  #set GPIO direction (IN / OUT)
 GPIO.setup(GPIO_TRIGGER, GPIO.OUT)
 GPIO.setup(GPIO_ECHO, GPIO.IN)
@@ -21,12 +22,13 @@ GPIO.setup(redLed, GPIO.OUT)
 GPIO.setup(greenLed, GPIO.OUT)
 GPIO.setup(yellowLed1, GPIO.OUT)
 GPIO.setup(yellowLed2, GPIO.OUT)
+GPIO.setup(buzzer, GPIO.OUT)
 def distance():
 	    # set Trigger to HIGH
-	GPIO.output(GPIO_TRIGGER, True)
+	GPIO.output(GPIO_TRIGGER, HIGH)
 	# set Trigger after 0.01ms to LOW
 	time.sleep(0.00001)
-	GPIO.output(GPIO_TRIGGER, False)
+	GPIO.output(GPIO_TRIGGER, LOW)
  	StartTime = time.time()
 	StopTime = time.time()
 	# save StartTime
@@ -43,15 +45,36 @@ def distance():
 	return distance
 
 allLedOff():
-	pass
+	GPIO.output(redLed, LOW)
+	GPIO.output(greenLed, LOW)
+	GPIO.output(yellowLed1, LOW)
+	GPIO.output(yellowLed2, LOW)
+	GPIO.output(buzzer, LOW)
 oneLedOn():
-	pass
+	GPIO.output(redLed, HIGH)
+	GPIO.output(greenLed, LOW)
+	GPIO.output(yellowLed1, LOW)
+	GPIO.output(yellowLed2, LOW)
+	GPIO.output(buzzer, HIGH)
+	time.seep(0.5)
+	GPIO.output(buzzer, LOW)
 twoLedOn():
-	pass
+	GPIO.output(redLed, HIGH)
+	GPIO.output(yellowLed1, HIGH)
+	GPIO.output(yellowLed2, LOW)
+	GPIO.output(greenLed, LOW)
+
 threeLedOn():
-	pass
+	GPIO.output(redLed, HIGH)
+	GPIO.output(yellowLed1, HIGH)
+	GPIO.output(yellowLed2, HIGH)
+	GPIO.output(greenLed, LOW)
+
 allLedOn():
-	pass
+	GPIO.output(redLed, HIGH)
+	GPIO.output(yellowLed1, HIGH)
+	GPIO.output(yellowLed2, HIGH)
+	GPIO.output(greenLed, HIGH)
 
 if __name__ == '__main__':
 	try:
