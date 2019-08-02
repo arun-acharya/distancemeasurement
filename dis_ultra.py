@@ -44,13 +44,13 @@ def distance():
 		distance = (TimeElapsed * 34300) / 2
 	return distance
 
-allLedOff():
+def allLedOff():
 	GPIO.output(redLed, LOW)
 	GPIO.output(greenLed, LOW)
 	GPIO.output(yellowLed1, LOW)
 	GPIO.output(yellowLed2, LOW)
 	GPIO.output(buzzer, LOW)
-oneLedOn():
+def oneLedOn():
 	GPIO.output(redLed, HIGH)
 	GPIO.output(greenLed, LOW)
 	GPIO.output(yellowLed1, LOW)
@@ -58,19 +58,19 @@ oneLedOn():
 	GPIO.output(buzzer, HIGH)
 	time.seep(0.5)
 	GPIO.output(buzzer, LOW)
-twoLedOn():
+def twoLedOn():
 	GPIO.output(redLed, HIGH)
 	GPIO.output(yellowLed1, HIGH)
 	GPIO.output(yellowLed2, LOW)
 	GPIO.output(greenLed, LOW)
 
-threeLedOn():
+def threeLedOn():
 	GPIO.output(redLed, HIGH)
 	GPIO.output(yellowLed1, HIGH)
 	GPIO.output(yellowLed2, HIGH)
 	GPIO.output(greenLed, LOW)
 
-allLedOn():
+def allLedOn():
 	GPIO.output(redLed, HIGH)
 	GPIO.output(yellowLed1, HIGH)
 	GPIO.output(yellowLed2, HIGH)
