@@ -81,18 +81,18 @@ try:
 	while True:
 		dist = distance()
 		print ("Measured Distance = %.1f cm" % dist)
-		if (distance<1):
+		if (dist<1):
 			print("Distance too low")
 			allLedOff()
-		elif (distance>20):
+		elif (dist>20):
 			print("Distance too high")
 			allLedOff()
 		else:
-			if (distance>=5):
+			if (dist>=5):
 				oneLedOn()
-			elif(distance>=10):
+			elif(dist>=10):
 				twoLedOn()
-			elif(distance>=15):
+			elif(dist>=15):
 				threeLedOn()
 			else:
 				allLedOn()
