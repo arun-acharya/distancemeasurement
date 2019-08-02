@@ -90,11 +90,11 @@ try:
 			print("Distance too high")
 			allLedOff()
 		else:
-			if (dist>=5):
+			if (dist<=5):
 				oneLedOn()
-			elif(dist>=10):
+			elif(dist<=10):
 				twoLedOn()
-			elif(dist>=15):
+			elif(dist<=15):
 				threeLedOn()
 			else:
 				allLedOn()
