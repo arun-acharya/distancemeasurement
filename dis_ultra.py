@@ -4,6 +4,8 @@ import time
 #GPIO Mode (BOARD / BCM)
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
+
+print("Starting the program")
  #set GPIO Pins
 GPIO_TRIGGER = 18
 GPIO_ECHO = 24
@@ -24,7 +26,7 @@ GPIO.setup(greenLed, GPIO.OUT)
 GPIO.setup(yellowLed1, GPIO.OUT)
 GPIO.setup(yellowLed2, GPIO.OUT)
 GPIO.setup(buzzer, GPIO.OUT)
-def distance():
+def getdistance():
 	    # set Trigger to HIGH
 	GPIO.output(GPIO_TRIGGER, GPIO.HIGH)
 	# set Trigger after 0.01ms to LOW
@@ -79,7 +81,7 @@ def allLedOn():
 
 try:
 	while True:
-		dist = distance()
+		dist = getdistance()
 		print ("Measured Distance = %.1f cm" % dist)
 		if (dist<1):
 			print("Distance too low")
