@@ -3,6 +3,7 @@ import RPi.GPIO as GPIO
 import time
 #GPIO Mode (BOARD / BCM)
 GPIO.setmode(GPIO.BCM)
+GPIO.setwarnings(False)
  #set GPIO Pins
 GPIO_TRIGGER = 18
 GPIO_ECHO = 24
@@ -76,28 +77,27 @@ def allLedOn():
 	GPIO.output(yellowLed2, GPIO.HIGH)
 	GPIO.output(greenLed, GPIO.HIGH)
 
-if __name__ == '__main__':
-	try:
-		while True:
-			dist = distance()
-			print ("Measured Distance = %.1f cm" % dist)
-			if (distance<1):
-				print("Distance too low")
-				allLedOff()
-			elif (distance>20):
-				print("Distance too high")
-				allLedOff()
+try:
+	while True:
+		dist = distance()
+		print ("Measured Distance = %.1f cm" % dist)
+		if (distance<1):
+			print("Distance too low")
+			allLedOff()
+		elif (distance>20):
+			print("Distance too high")
+			allLedOff()
+		else:
+			if (distance>=5):
+				oneLedOn()
+			elif(distance>=10):
+				twoLedOn()
+			elif(distance>=15):
+				threeLedOn()
 			else:
-				if (distance>=5):
-					oneLedOn()
-				elif(distance>=10):
-					twoLedOn()
-				elif(distance>=15):
-					threeLedOn()
-				else:
-					allLedOn()
-			time.sleep(1)
+				allLedOn()
+		time.sleep(1)
 # Reset by pressing CTRL + C
-	except KeyboardInterrupt:
-		print("Measurement stopped by User")
-		GPIO.cleanup()
+except KeyboardInterrupt:
+	print("Measurement stopped by User")
+	GPIO.cleanup()
