@@ -13,8 +13,8 @@ GPIO_ECHO = 24
 totalDistance = 20
 redLed = 6 
 greenLed = 26 
-yellowLed1 = 19
-yellowLed2 = 13
+yellowLed1 = 13
+yellowLed2 = 19
 buzzer = 5
  #set GPIO direction (IN / OUT)
 GPIO.setup(GPIO_TRIGGER, GPIO.OUT)
