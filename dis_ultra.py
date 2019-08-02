@@ -25,10 +25,10 @@ GPIO.setup(yellowLed2, GPIO.OUT)
 GPIO.setup(buzzer, GPIO.OUT)
 def distance():
 	    # set Trigger to HIGH
-	GPIO.output(GPIO_TRIGGER, HIGH)
+	GPIO.output(GPIO_TRIGGER, GPIO.HIGH)
 	# set Trigger after 0.01ms to LOW
 	time.sleep(0.00001)
-	GPIO.output(GPIO_TRIGGER, LOW)
+	GPIO.output(GPIO_TRIGGER, GPIO.LOW)
  	StartTime = time.time()
 	StopTime = time.time()
 	# save StartTime
@@ -45,36 +45,36 @@ def distance():
 	return distance
 
 def allLedOff():
-	GPIO.output(redLed, LOW)
-	GPIO.output(greenLed, LOW)
-	GPIO.output(yellowLed1, LOW)
-	GPIO.output(yellowLed2, LOW)
-	GPIO.output(buzzer, LOW)
+	GPIO.output(redLed, GPIO.LOW)
+	GPIO.output(greenLed, GPIO.LOW)
+	GPIO.output(yellowLed1, GPIO.LOW)
+	GPIO.output(yellowLed2, GPIO.LOW)
+	GPIO.output(buzzer, GPIO.LOW)
 def oneLedOn():
-	GPIO.output(redLed, HIGH)
-	GPIO.output(greenLed, LOW)
-	GPIO.output(yellowLed1, LOW)
-	GPIO.output(yellowLed2, LOW)
-	GPIO.output(buzzer, HIGH)
+	GPIO.output(redLed, GPIO.HIGH)
+	GPIO.output(greenLed, GPIO.LOW)
+	GPIO.output(yellowLed1, GPIO.LOW)
+	GPIO.output(yellowLed2, GPIO.LOW)
+	GPIO.output(buzzer, GPIO.HIGH)
 	time.seep(0.5)
-	GPIO.output(buzzer, LOW)
+	GPIO.output(buzzer, GPIO.LOW)
 def twoLedOn():
-	GPIO.output(redLed, HIGH)
-	GPIO.output(yellowLed1, HIGH)
-	GPIO.output(yellowLed2, LOW)
-	GPIO.output(greenLed, LOW)
+	GPIO.output(redLed, GPIO.HIGH)
+	GPIO.output(yellowLed1, GPIO.HIGH)
+	GPIO.output(yellowLed2, GPIO.LOW)
+	GPIO.output(greenLed, GPIO.LOW)
 
 def threeLedOn():
-	GPIO.output(redLed, HIGH)
-	GPIO.output(yellowLed1, HIGH)
-	GPIO.output(yellowLed2, HIGH)
-	GPIO.output(greenLed, LOW)
+	GPIO.output(redLed, GPIO.HIGH)
+	GPIO.output(yellowLed1, GPIO.HIGH)
+	GPIO.output(yellowLed2, GPIO.HIGH)
+	GPIO.output(greenLed, GPIO.LOW)
 
 def allLedOn():
-	GPIO.output(redLed, HIGH)
-	GPIO.output(yellowLed1, HIGH)
-	GPIO.output(yellowLed2, HIGH)
-	GPIO.output(greenLed, HIGH)
+	GPIO.output(redLed, GPIO.HIGH)
+	GPIO.output(yellowLed1, GPIO.HIGH)
+	GPIO.output(yellowLed2, GPIO.HIGH)
+	GPIO.output(greenLed, GPIO.HIGH)
 
 if __name__ == '__main__':
 	try:
