@@ -7,8 +7,8 @@ GPIO.setwarnings(False)
 
 print("Starting the program")
  #set GPIO Pins
-GPIO_TRIGGER = 18
-GPIO_ECHO = 24
+GPIO_TRIGGER = 2
+GPIO_ECHO = 3
 
 totalDistance = 20
 redLed = 6 
@@ -98,7 +98,7 @@ try:
 				threeLedOn()
 			else:
 				allLedOn()
-		time.sleep(1)
+		#time.sleep(1)
 # Reset by pressing CTRL + C
 except KeyboardInterrupt:
 	print("Measurement stopped by User")
